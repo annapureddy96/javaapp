@@ -45,7 +45,7 @@ pipeline {
 }
 post {
      always {
-       emailext to: 'lprudra9@gmail.com',
+       emailext to: 'annapureddymahendra@gmail.com',
        attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
        subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
     }
