@@ -1,7 +1,5 @@
-  - hosts: all
-   become: true
-   tasks:
-     -name: copy file from jenkins to tomcat
-     copy:
-        src: webapp/target/webapp.war
-        dest: /opt/tomcat/webapps
+   - hosts: all
+     become: true
+     tasks:
+      -name: copy file from jenkins to tomcat
+      shell: cp -R webapp/target/webapp.war /opt/tomcat/webapps/ 
