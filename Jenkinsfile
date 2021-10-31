@@ -31,7 +31,7 @@ pipeline {
       steps {
         sh '''
             current_time=$(date +"%Y.%m.%d-%H.%M.%S")
-            cp webapp/target/webapp.war webapp_bkp.war:$current_time .
+            cp webapp/target/webapp.war webapp/target/webapp_bkp.war:$current_time .
          '''   
         
       }
