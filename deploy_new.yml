@@ -4,4 +4,4 @@
     - name: Copy war file from jenkins to tomcat
       copy:
         src: webapp/target/webapp.war
-        dest: /home/ubuntu/mahi
+        dest: /opt/tomcat/webapps/
