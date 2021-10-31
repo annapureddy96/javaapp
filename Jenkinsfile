@@ -29,7 +29,7 @@ pipeline {
     }
        stage('Backup webapp file') {
       steps {
-        sh 'cp webapp/target/webapp.war webapp/target/webapp.war.'date +%Y.%m.%d.%H.%M.%S''
+        sh 'cp -p webapp/target/webapp.war webapp/target/webapp.war.'date +%Y.%m.%d.%H.%M.%S''
       }
     }
  //     stage('building docker image from docker file by tagging') {
