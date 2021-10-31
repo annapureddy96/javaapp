@@ -27,11 +27,6 @@ pipeline {
         sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
       }
     }
-       stage('Backup webapp file') {
-      steps {
-        sh 'cp -p webapp/target/webapp.war webapp/target/webapp.war.'date +%Y.%m.%d-%H.%M.%S''
-      }
-    }
  //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
