@@ -32,7 +32,7 @@ pipeline {
         sh 'cp webapp/target/webapp.war webapp/target/webapp_bkp.war'   
       }
     }
-    stage('deploy file in tomcat') {
+    stage('deploy to tomcat') {
       steps {
         sh 'ansible-playbook deploy_new.yml'   
       }
