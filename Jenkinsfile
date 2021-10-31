@@ -27,9 +27,9 @@ pipeline {
         sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
       }
     }
-    stage('push artifact to s3') {
+    stage('Backup webapp file') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+        sh 'aws s3 cp webapp/target/webapp.war webapp/target/webapp_bkp.war '
       }
     }
  //     stage('building docker image from docker file by tagging') {
