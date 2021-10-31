@@ -32,6 +32,11 @@ pipeline {
         sh 'cp webapp/target/webapp.war webapp/target/webapp_bkp.war'   
       }
     }
+    stage('deploy file in tomcat') {
+      steps {
+        sh 'ansible-playbook deploy_new.yml'   
+      }
+    }
  //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
