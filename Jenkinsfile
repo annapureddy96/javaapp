@@ -34,7 +34,7 @@ pipeline {
     }
     stage('deploy to tomcat') {
       steps {
-        sh 'ansible-playbook deploy_new.yml'   
+        sh 'ansible-playbook deploy_new.retry'   
       }
     }
  //     stage('building docker image from docker file by tagging') {
