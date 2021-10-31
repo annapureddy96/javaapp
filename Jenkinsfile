@@ -17,7 +17,7 @@ pipeline {
                 '''
             }
         }
-    stage('cleaning package') {
+    stage('Build maven') {
       steps {
         sh 'mvn clean install package'
       }
@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Backup webapp file') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war webapp/target/webapp_bkp.war '
+        sh 'cp webapp/target/webapp.war webapp/target/webapp_bkp.war '
       }
     }
  //     stage('building docker image from docker file by tagging') {
