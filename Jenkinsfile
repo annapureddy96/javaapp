@@ -27,11 +27,6 @@ pipeline {
         sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
       }
     }
-     stage('Backup a file with tomcat') {
-      steps {
-        sh 'ansible-playbook deploy_new.yml'
-      }
-    }
  //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
