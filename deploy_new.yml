@@ -1,7 +1,8 @@
-- hosts: 3.108.235.59
+- hosts: all
   become: true
   tasks:
     - name: Copy war file from jenkins to tomcat
-      copy:
-        src: webapp/target/webapp.war
-        dest: /opt/tomcat/webapps/
+      archive:
+        path: /opt/tomcat/webapps/webapp.war
+        dest: /opt/tomcat/webapps/webapp_{{ansible_date_time.date}}.zip
+        format: zip
