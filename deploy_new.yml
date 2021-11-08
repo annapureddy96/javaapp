@@ -1,7 +1,22 @@
 - hosts: all
   become: true
   tasks:
-    - name: Copy war file from jenkins to tomcat
+    - name: Delete old 10 days files from last 3 days
+      shell:  find /home/ubuntu -mindepth 1 -mtime +10 -type f -delete
+#####################################################################################################################
+- hosts: all
+  become: true
+  tasks:
+    - name: Backup a file with timestamp
+      archeive:
+        path: /opt/tomcat/webapps/webapp.war
+        dest: /opt/tomcat/webapps/webapp_{{ansible_date_time.date}}.zip
+        format: zip
+######################################################################################################################
+- hosts: all
+  become: true
+  tasks: 
+    - name: deploy to tomcat
       copy:
         src: webapp/target/webapp.war
         dest: /opt/tomcat/webapps
