@@ -6,15 +6,6 @@
 #####################################################################################################################
 - hosts: all
   become: true
-  tasks:
-    - name: Backup a file with timestamp
-      archeive:
-        path: /opt/tomcat/webapps/webapp.war
-        dest: /opt/tomcat/webapps/webapp_{{ansible_date_time.date}}.zip
-        format: zip
-######################################################################################################################
-- hosts: all
-  become: true
   tasks: 
     - name: deploy to tomcat
       copy:
