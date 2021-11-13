@@ -24,7 +24,7 @@ pipeline {
     }
    stage('Push artifact to s3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+        sh 'aws s3 cp webapp/target/webapp.war s3://isthak'
       }
     }
    //stage('Deploy to tomcat') {
