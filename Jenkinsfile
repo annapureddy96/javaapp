@@ -24,7 +24,12 @@ pipeline {
     }
    stage('Push artifact to s3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://isthak'
+        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+      }
+    }
+    stage('deploy to tomcat') {
+      steps {
+        sh 'ansible-playbook deploy_new.yml'
       }
     }
    //stage('Deploy to tomcat') {
@@ -55,7 +60,7 @@ pipeline {
 }
 post {
      always {
-       emailext to: 'isthaq.ahmed786@gmail.com',
+       emailext to: 'annapureddymahendra@gmail.com',
        attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
        subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
     }
