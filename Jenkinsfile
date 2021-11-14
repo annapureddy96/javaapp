@@ -22,11 +22,11 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
-   stage('Push artifact to s3') {
-      steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
-      }
-    }
+ //  stage('Push artifact to s3') {
+   //   steps {
+     //   sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+      \\}
+    //}
       //stage('Deploy to tomcat') {
      // steps {
        // sh 'ansible-playbook deploy_new.yml'
