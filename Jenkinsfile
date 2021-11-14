@@ -27,12 +27,7 @@ pipeline {
         sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
       }
     }
-    stage('deploy to tomcat') {
-      steps {
-        sh 'ansible-playbook deploy_new.yml'
-      }
-    }
-   //stage('Deploy to tomcat') {
+      //stage('Deploy to tomcat') {
      // steps {
        // sh 'ansible-playbook deploy_new.yml'
       //}
