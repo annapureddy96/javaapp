@@ -23,9 +23,9 @@ pipeline {
       }
     }
  //  stage('Push artifact to s3') {
-   //   steps {
-     //   sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
-      \\}
+ //   steps {
+ //      sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+  //     }
     //}
       //stage('Deploy to tomcat') {
      // steps {
