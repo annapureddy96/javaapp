@@ -1,23 +1,23 @@
-- hosts: all
-  become: true
-  tasks:
-    - name: Delete old 10 days files from last 3 days
-      shell:  find /home/ubuntu -mindepth 1 -mtime +10 -type f -delete
+//- hosts: all
+//  become: true
+//  tasks:
+//    - name: Delete old 10 days files from last 3 days
+//      shell:  find /home/ubuntu -mindepth 1 -mtime +10 -type f -delete
 #########################################################################################################################
-- hosts: all
-  become: true
-  tasks:
-    - name: Backup webapp file
-      file:
-        path: /opt/tomcat/webapps/webapp_{{ansible_date_time.date}}.zip
-        state: touch
+//- hosts: all
+//  become: true
+//  tasks:
+//    - name: Backup webapp file
+//      file:
+//        path: /opt/tomcat/webapps/webapp_{{ansible_date_time.date}}.zip
+//        state: touch
 #############################################################################################################################
-- hosts: all
-  become: true
-  tasks:
-    - name: Deploy to tomcat
-      copy:
-        src: webapp/target/webapp.war
-        dest: /opt/tomcat/webapps/
+//- hosts: all
+//  become: true
+//  tasks:
+//    - name: Deploy to tomcat
+//      copy:
+//        src: webapp/target/webapp.war
+//        dest: /opt/tomcat/webapps/
 
 
