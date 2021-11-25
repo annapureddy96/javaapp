@@ -19,4 +19,4 @@
      ignore_errors: yes
 
    - name: Run a container from the pulled image
-     command: docker run -d --name phani-c1 -p 80:8080 mahendra96/sample:"{{buildNumber}}"
+     command: docker run -d --name container1 -p 80:8080 mahendra96/sample:"{{buildNumber}}"
