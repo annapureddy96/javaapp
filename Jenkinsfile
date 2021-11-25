@@ -22,16 +22,16 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
-   stage('Push artifact to s3') {
-     steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
-      }
-    }
-   stage('Deploy to tomcat') {
-     steps {
-        sh 'ansible-playbook deploy_new.yml'
-      }
-    }  
+//   stage('Push artifact to s3') {
+//     steps {
+//        sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
+//      }
+//    }
+//   stage('Deploy to tomcat') {
+//     steps {
+//        sh 'ansible-playbook deploy_new.yml'
+//      }
+//    }  
  //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
