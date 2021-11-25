@@ -34,7 +34,7 @@ pipeline {
 //    }  
   stage('building docker image from docker file by tagging') {
     steps {
-      sh 'docker build -t mahendra96/sample:$BUILD_NUMBER .'
+      sh 'docker build -t mahendra96/demo:$BUILD_NUMBER .'
     }   
   }
  stage('logging into docker hub') {
