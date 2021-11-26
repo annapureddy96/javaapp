@@ -34,7 +34,7 @@ pipeline {
 //    }  
   stage('building docker image from docker file by tagging') {
     steps {
-      sh 'docker build -t mahendra96/demo:$BUILD_NUMBER .'
+      sh 'docker build -t mahendra96/sample:demo-$BUILD_NUMBER .'
     }   
   }
  stage('logging into docker hub') {
@@ -44,7 +44,7 @@ pipeline {
   }
 stage('pushing docker image to the docker hub with build number') {
   steps {
-    sh 'docker push mahendra96/sample:$BUILD_NUMBER'
+    sh 'docker push mahendra96/sample:demo-$BUILD_NUMBER'
    }   
  }
  stage('deploying the docker image into EC2 instance and run the container') {
