@@ -22,6 +22,15 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
+    stage('Sonar analaysis') {
+      steps {
+        sh '''
+            mvn sonar:sonar \
+              -Dsonar.host.url=http://www.mahendra.store \
+              -Dsonar.login=6b4f778db2af7b0d33d6b7f3b13abdbbef3a9db1
+           '''   
+      }
+    }
  // stage('Push artifact to s3') {
 //   steps {
 //      sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
