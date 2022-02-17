@@ -22,15 +22,7 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
-    stage('Sonar analaysis') {
-      steps {
-        sh '''
-            mvn sonar:sonar \
-              -Dsonar.host.url=http://www.mahendra.store \
-              -Dsonar.login=6b4f778db2af7b0d33d6b7f3b13abdbbef3a9db1
-           '''   
-      }
-    }
+   
  // stage('Push artifact to s3') {
 //   steps {
 //      sh 'aws s3 cp webapp/target/webapp.war s3://vaishu-s'
@@ -41,27 +33,7 @@ pipeline {
 //        sh 'ansible-playbook deploy_new.yml'
 //      }
 //    }  
-  stage('building docker image from docker file by tagging') {
-    steps {
-      sh 'docker build -t mahendra96/sample:demo-$BUILD_NUMBER .'
-    }   
-  }
- stage('logging into docker hub') {
-   steps {
-     sh 'docker login --username="mahendra96" --password="Mahendra@96"'
-    }   
-  }
-stage('pushing docker image to the docker hub with build number') {
-  steps {
-    sh 'docker push mahendra96/sample:demo-$BUILD_NUMBER'
-   }   
- }
- stage('deploying the docker image into EC2 instance and run the container') {
-   steps {
-     sh 'ansible-playbook deploy.yml --extra-vars="buildNumber=$BUILD_NUMBER"'
-    }   
-  }  
-}
+ 
 post {
      always {
        emailext to: 'annapureddymahendra@gmail.com',
