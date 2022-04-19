@@ -28,11 +28,11 @@ pipeline {
      sh 'aws cp webapp/target/webapp.war /home/ubuntu'
       }
     }
-//   stage('Deploy to tomcat') {
-//     steps {
-//        sh 'ansible-playbook deploy_new.yml'
-//      }
-//    }  
+   stage('Deploy to tomcat') {
+     steps {
+        sh 'ansible-playbook deploy_new.yml'
+      }
+   }  
  
 post {
      always {
