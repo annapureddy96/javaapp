@@ -25,7 +25,7 @@ pipeline {
    
   stage('Push artifact to s3') {
    steps {
-     sh 'aws cp webapp/target/webapp.war /home/ubuntu'
+     sh 'aws s3 cp webapp/target/webapp.war s3://mahi-app'
       }
     }
    stage('Deploy to tomcat') {
